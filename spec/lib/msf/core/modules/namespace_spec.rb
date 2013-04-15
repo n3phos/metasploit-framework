@@ -105,8 +105,8 @@ describe Msf::Modules::Namespace do
 				subject.const_defined?('Metasploit5').should be_true
 			end
 
-			it 'should be newer than Msf::Framework::Major' do
-				major.should > Msf::Framework::Major
+			it 'should be newer than Metasploit::Framework::Version::MAJOR' do
+				major.should > Metasploit::Framework::Version::MAJOR
 			end
 
 			it 'should return nil' do

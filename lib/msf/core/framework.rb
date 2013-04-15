@@ -1,4 +1,5 @@
 # -*- coding: binary -*-
+require 'metasploit/framework/version'
 require 'msf/core'
 require 'msf/util'
 
@@ -15,17 +16,6 @@ class Framework
 	#
 	# Versioning information
 	#
-
-	Major    = 4
-	Minor    = 7
-	Point    = 0
-	Release  = "-dev"
-
-	if(Point)
-		Version  = "#{Major}.#{Minor}.#{Point}#{Release}"
-	else
-		Version  = "#{Major}.#{Minor}#{Release}"
-	end
 
 	Revision = "$Revision$"
 
@@ -46,7 +36,7 @@ class Framework
 	APIMinor = 0
 
 	# Base/API Version
-	VersionCore  = Major + (Minor / 10.0)
+	VersionCore  = Metasploit::Framework::Version::MAJOR + (Metasploit::Framework::Version::MINOR / 10.0)
 	VersionAPI   = APIMajor + (APIMinor / 10.0)
 
 	#
@@ -144,11 +134,11 @@ class Framework
 		return modules.post
 	end
 
+	# Returns the framework version in Major.Minor.Patch format.
 	#
-	# Returns the framework version in Major.Minor format.
-	#
+	# @return [String] {Metasploit::Framework::Version::FULL}
 	def version
-		Version
+		Metasploit::Framework::Version::FULL
 	end
 
 	#

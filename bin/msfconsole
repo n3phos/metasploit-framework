@@ -161,7 +161,7 @@ require 'msf/ui'
 #
 
 if (options['Version'])
-	$stderr.puts 'Framework Version: ' + Msf::Framework::Version
+	$stderr.puts 'Framework Version: ' + Metasploit::Framework::Version::FULL
 	exit
 end
 

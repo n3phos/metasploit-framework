@@ -9,6 +9,8 @@ root = pathname.parent
 lib_pathname = root.join('lib')
 $LOAD_PATH.unshift(lib_pathname.to_s)
 
+Bundler::GemHelper.install_tasks
+
 #
 # load rake files like a rails engine
 #

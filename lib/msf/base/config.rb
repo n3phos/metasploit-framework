@@ -27,20 +27,22 @@ class Config < Hash
 			return val
 		end
 
+		basename = ".msf#{Metasploit::Framework::Version::MAJOR}"
+
 		# Windows-specific environment variables
 		['HOME', 'LOCALAPPDATA', 'APPDATA', 'USERPROFILE'].each do |dir|
 			val = Rex::Compat.getenv(dir)
 			if (val and File.directory?(val))
-				return File.join(val, ".msf#{Msf::Framework::Major}")
+				return File.join(val, basename)
 			end
 		end
 
 		begin
 			# First we try $HOME/.msfx
-			File.expand_path("~#{FileSep}.msf#{Msf::Framework::Major}")
+			File.expand_path("~#{FileSep}#{basename}")
 		rescue ::ArgumentError
 			# Give up and install root + ".msfx"
-			InstallRoot + ".msf#{Msf::Framework::Major}"
+			InstallRoot + basename
 		end
 	end
 

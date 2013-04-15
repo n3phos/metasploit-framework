@@ -1,15 +1,8 @@
 source 'http://rubygems.org'
 
-# Need 3+ for ActiveSupport::Concern
-gem 'activesupport', '>= 3.0.0'
-# Needed for some admin modules (scrutinizer_add_user.rb)
-gem 'json'
-# Needed by msfgui and other rpc components
-gem 'msgpack'
-# Needed by anemone crawler
-gem 'nokogiri'
-# Needed by anemone crawler
-gem 'robots'
+
+# Specify gem dependencies in metasploit-framework.gemspec
+gemspec
 
 group :db do
   # Needed for Msf::DbManager

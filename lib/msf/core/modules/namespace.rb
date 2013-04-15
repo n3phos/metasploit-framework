@@ -11,7 +11,7 @@ module Msf::Modules::Namespace
   def metasploit_class
     metasploit_class = nil
 
-    ::Msf::Framework::Major.downto(1) do |major|
+    Metasploit::Framework::Version::MAJOR.downto(1) do |major|
       # Since we really only care about the deepest namespace, we don't
       # need to look for parents' constants. However, the "inherit"
       # parameter for const_defined? only exists after 1.9. If we ever

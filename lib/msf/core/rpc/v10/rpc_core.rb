@@ -5,7 +5,7 @@ class RPC_Core < RPC_Base
 
 	def rpc_version
 		{
-			"version" => ::Msf::Framework::Version,
+			"version" => Metasploit::Framework::Version::FULL,
 			"ruby"    => "#{RUBY_VERSION} #{RUBY_PLATFORM} #{RUBY_RELEASE_DATE}",
 			"api"     => API_VERSION
 		}

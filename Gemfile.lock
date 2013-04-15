@@ -1,3 +1,13 @@
+PATH
+  remote: .
+  specs:
+    metasploit-framework (4.7.0)
+      activesupport (>= 3.0.0)
+      json
+      msgpack
+      nokogiri
+      robots
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -52,18 +62,14 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  activesupport (>= 3.0.0)
   database_cleaner
   factory_girl (>= 4.1.0)
-  json
+  metasploit-framework!
   metasploit_data_models (~> 0.6.14)
-  msgpack
-  nokogiri
   pcaprub
   pg (>= 0.11)
   rake
   redcarpet
-  robots
   rspec (>= 2.12)
   simplecov (= 0.5.4)
   yard

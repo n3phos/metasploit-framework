@@ -396,7 +396,7 @@ class Core
 			banner << "\n\n"
 		end
 
-		banner << "       =[ %yelmetasploit v#{Msf::Framework::Version} [core:#{Msf::Framework::VersionCore} api:#{Msf::Framework::VersionAPI}]%clr\n"
+		banner << "       =[ %yelmetasploit v#{Metasploit::Framework::Version::FULL} [core:#{Msf::Framework::VersionCore} api:#{Msf::Framework::VersionAPI}]%clr\n"
 		banner << "+ -- --=[ "
 		banner << "#{framework.stats.num_exploits} exploits - #{framework.stats.num_auxiliary} auxiliary - #{framework.stats.num_post} post\n"
 		banner << "+ -- --=[ "
@@ -2459,11 +2459,11 @@ class Core
 		svn_console_version = "$Revision: 15168 $"
 		svn_metasploit_version = Msf::Framework::Revision.match(/ (.+?) \$/)[1] rescue nil
 		if svn_metasploit_version
-			print_line("Framework: #{Msf::Framework::Version}.#{svn_metasploit_version}")
+			print_line("Framework: #{Metasploit::Framework::Version::FULL}.#{svn_metasploit_version}")
 		else
-			print_line("Framework: #{Msf::Framework::Version}")
+			print_line("Framework: #{Metasploit::Framework::Version::FULL}")
 		end
-		print_line("Console  : #{Msf::Framework::Version}.#{svn_console_version.match(/ (.+?) \$/)[1]}")
+		print_line("Console  : #{Metasploit::Framework::Version::FULL}.#{svn_console_version.match(/ (.+?) \$/)[1]}")
 
 		return true
 	end
