@@ -23,9 +23,7 @@ describe specification_basename do
 
 		it { should_not be_empty }
 
-    it 'should match Metasploit::Framework::Specification.sorted_author_names' do
-	    authors.should == Metasploit::Framework::Specification.sorted_author_names
-    end
+		it { should include('Metasploit Hackers') }
 	end
 
 	context '#description' do
@@ -41,12 +39,10 @@ describe specification_basename do
 
 		it { should_not be_empty }
 
+		it { should include('metasploit-hackers@lists.sourceforge.net')}
+
 		it 'should have same number of entries as #authors' do
 			email.length.should == specification.authors.length
-		end
-
-		it 'should match Metasploit::Framework::Specification.author_emails_sorted_by_author_name' do
-			email.should == Metasploit::Framework::Specification.author_emails_sorted_by_author_name
 		end
 	end
 

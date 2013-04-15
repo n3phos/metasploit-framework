@@ -2,13 +2,16 @@
 lib_path = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift lib_path
 
-require 'metasploit/framework/specification'
 require 'metasploit/framework/version'
 
 Gem::Specification.new do |gem|
-  gem.authors       = Metasploit::Framework::Specification.sorted_author_names
+  gem.authors       = [
+		  'Metasploit Hackers'
+  ]
   gem.description   = 'Exploit development, penetration testing and security auditing framework'
-  gem.email         = Metasploit::Framework::Specification.author_emails_sorted_by_author_name
+  gem.email         = [
+		  'metasploit-hackers@lists.sourceforge.net'
+  ]
   gem.homepage      = 'http://www.metasploit.com'
   gem.name          = 'metasploit-framework'
   gem.require_paths = ['lib']
