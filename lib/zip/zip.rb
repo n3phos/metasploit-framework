@@ -1290,6 +1290,7 @@ module Zip
       
       # 'buf = io.read' substituted with lump of code to work around FreeBSD 4.5 issue
       retried = false
+			#test comment
       buf = nil
       begin
         buf = io.read
