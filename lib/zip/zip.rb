@@ -1286,6 +1286,21 @@ module Zip
 	io.seek(-MAX_END_OF_CENTRAL_DIRECTORY_STRUCTURE_SIZE, IO::SEEK_END)
       rescue Errno::EINVAL
 	io.seek(0, IO::SEEK_SET)
+      rescue Errno::EFBIG # FreeBSD 4.9 raise Errno::EFBIG instead of Errno::EINVAL
+	io.seek(0, IO::SEEK_SET)
+      end
+      
+      # 'buf = io.read' substituted with lump of code to work around FreeBSD 4.5 issue
+      retried = false
+      buf = nil
+      begin
+        buf = io.read
+      rescue Errno::EFBIG # FreeBSD 4.5 may raise Errno::EFBIG
+        raise if (retried)
+        retried = true
+	
+        io.seek(0, IO::SEEK_SET)
+        retry
       end
 
 			buf = io.read
